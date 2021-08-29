@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import routes from './routes/netlify.routes';
+import routes from './routes/index.routes';
 
 const app = express();
 
@@ -10,4 +10,4 @@ app.use(cors());
 
 app.use('/api', routes);
 
-app.listen(3333);
+export default app;
