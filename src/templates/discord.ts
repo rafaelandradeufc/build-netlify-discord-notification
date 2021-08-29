@@ -1,7 +1,7 @@
 import date from 'date-and-time';
 export class Discord {
 
-public static buildSucceeded(branch: string, prod_link:string, build_id:string) {
+public static buildSucceeded(app_name: string, branch: string, prod_link:string, build_id:string, context:string) {
 
 
     return {
@@ -14,7 +14,9 @@ public static buildSucceeded(branch: string, prod_link:string, build_id:string) 
             color: 0x00ff2a,
             fields:[
                 {name: 'ID da build', value: build_id, inline: false},
+                {name: 'Aplicação', value: app_name, inline: false},
                 {name: 'Branch', value: branch, inline: false},
+                {name: 'Contexto', value: context, inline: false},
                 {name: 'Link de Produção', value: prod_link, inline: false},
  
             ],
@@ -27,7 +29,7 @@ public static buildSucceeded(branch: string, prod_link:string, build_id:string) 
     };
 }
 
-public static buildFailed(branch: string, build_id:string) {
+public static buildFailed(app_name: string, branch: string, build_id:string, context:string) {
 
     return {
         username: 'Buildbot',
@@ -39,7 +41,9 @@ public static buildFailed(branch: string, build_id:string) {
             color: 0xff0000,
             fields:[
                 {name: 'ID da build', value: build_id, inline: false},
+                {name: 'Aplicação', value: app_name, inline: false},
                 {name: 'Branch', value: branch, inline: false},
+                {name: 'Contexto', value: context, inline: false},
  
             ],
             footer: {
@@ -51,7 +55,7 @@ public static buildFailed(branch: string, build_id:string) {
     };
 }
 
-public static buildStarted(branch: string, build_id:string) {
+public static buildStarted(app_name: string, branch: string, build_id:string, context:string) {
 
     return {
         username: 'Buildbot',
@@ -63,7 +67,9 @@ public static buildStarted(branch: string, build_id:string) {
             color: 0x00b3ff,
             fields:[
                 {name: 'ID da build', value: build_id, inline: false},
+                {name: 'Aplicação', value: app_name, inline: false},
                 {name: 'Branch', value: branch, inline: false},
+                {name: 'Contexto', value: context, inline: false},
  
             ],
             footer: {
@@ -75,7 +81,7 @@ public static buildStarted(branch: string, build_id:string) {
     };
 }
 
-public static buildLocked(branch: string, build_id:string) {
+public static buildLocked(app_name: string, branch: string, build_id:string, context:string) {
 
     return {
         username: 'Buildbot',
@@ -87,7 +93,9 @@ public static buildLocked(branch: string, build_id:string) {
             color: 0xeeff00,
             fields:[
                 {name: 'ID da build', value: build_id, inline: false},
+                {name: 'Aplicação', value: app_name, inline: false},
                 {name: 'Branch', value: branch, inline: false},
+                {name: 'Contexto', value: context, inline: false},
  
             ],
             footer: {
@@ -99,7 +107,7 @@ public static buildLocked(branch: string, build_id:string) {
     };
 }
 
-public static buildUnlocked(branch: string, build_id:string) {
+public static buildUnlocked(app_name: string, branch: string, build_id:string, context:string) {
 
     return {
         username: 'Buildbot',
@@ -111,7 +119,9 @@ public static buildUnlocked(branch: string, build_id:string) {
             color: 0x0040ff,
             fields:[
                 {name: 'ID da build', value: build_id, inline: false},
+                {name: 'Aplicação', value: app_name, inline: false},
                 {name: 'Branch', value: branch, inline: false},
+                {name: 'Contexto', value: context, inline: false},
  
             ],
             footer: {

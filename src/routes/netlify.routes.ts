@@ -6,10 +6,10 @@ const routes = Router();
 
 routes.post('/succeeded',async(request, response) => {
 
-    const { branch, ssl_url, build_id } = request.body;
+    const { name, branch, ssl_url, build_id , context } = request.body;
 
      await axios.post(process.env.DISCORD_CHANNEL_API,
-     Discord.buildSucceeded(branch, ssl_url, build_id)
+     Discord.buildSucceeded(name,branch, ssl_url, build_id,context)
     );
 
     response.sendStatus(200);
@@ -18,10 +18,10 @@ routes.post('/succeeded',async(request, response) => {
 
 routes.post('/failed',async(request, response) => {
 
-    const { branch, build_id } = request.body;
+    const { name, branch, build_id , context } = request.body;
 
      await axios.post(process.env.DISCORD_CHANNEL_API,
-     Discord.buildFailed(branch, build_id)
+     Discord.buildFailed(name,branch, build_id,context)
     );
 
     response.sendStatus(200);
@@ -29,10 +29,10 @@ routes.post('/failed',async(request, response) => {
 
 routes.post('/started',async(request, response) => {
 
-    const { branch, build_id } = request.body;
+    const { name, branch, build_id , context } = request.body;
 
      await axios.post(process.env.DISCORD_CHANNEL_API,
-     Discord.buildStarted(branch, build_id)
+     Discord.buildStarted(name,branch, build_id,context)
     );
 
     response.sendStatus(200);
@@ -41,10 +41,10 @@ routes.post('/started',async(request, response) => {
 
 routes.post('/locked',async(request, response) => {
 
-    const { branch, build_id } = request.body;
+    const { name, branch, build_id , context } = request.body;
 
      await axios.post(process.env.DISCORD_CHANNEL_API,
-     Discord.buildLocked(branch, build_id)
+     Discord.buildLocked(name,branch, build_id,context)
     );
 
     response.sendStatus(200);
@@ -52,10 +52,10 @@ routes.post('/locked',async(request, response) => {
 
 routes.post('/unlocked',async(request, response) => {
 
-    const { branch, build_id } = request.body;
+    const { name, branch, build_id , context } = request.body;
 
      await axios.post(process.env.DISCORD_CHANNEL_API,
-     Discord.buildUnlocked(branch, build_id)
+     Discord.buildUnlocked(name,branch, build_id,context)
     );
 
     response.sendStatus(200);
