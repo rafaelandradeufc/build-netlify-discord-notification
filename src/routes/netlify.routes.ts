@@ -8,7 +8,7 @@ routes.post('/succeeded',async(request, response) => {
 
     const { branch, ssl_url, build_id } = request.body;
 
-     await axios.post(process.env.DISCORD_CHANNEL,
+     await axios.post(process.env.DISCORD_CHANNEL_API,
      Discord.buildSucceeded(branch, ssl_url, build_id)
     );
 
@@ -20,7 +20,7 @@ routes.post('/failed',async(request, response) => {
 
     const { branch, build_id } = request.body;
 
-     await axios.post(process.env.DISCORD_CHANNEL,
+     await axios.post(process.env.DISCORD_CHANNEL_API,
      Discord.buildFailed(branch, build_id)
     );
 
@@ -31,7 +31,7 @@ routes.post('/started',async(request, response) => {
 
     const { branch, build_id } = request.body;
 
-     await axios.post(process.env.DISCORD_CHANNEL,
+     await axios.post(process.env.DISCORD_CHANNEL_API,
      Discord.buildStarted(branch, build_id)
     );
 
@@ -43,7 +43,7 @@ routes.post('/locked',async(request, response) => {
 
     const { branch, build_id } = request.body;
 
-     await axios.post(process.env.DISCORD_CHANNEL,
+     await axios.post(process.env.DISCORD_CHANNEL_API,
      Discord.buildLocked(branch, build_id)
     );
 
@@ -54,7 +54,7 @@ routes.post('/unlocked',async(request, response) => {
 
     const { branch, build_id } = request.body;
 
-     await axios.post(process.env.DISCORD_CHANNEL,
+     await axios.post(process.env.DISCORD_CHANNEL_API,
      Discord.buildUnlocked(branch, build_id)
     );
 
